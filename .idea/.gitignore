@@ -10,6 +10,13 @@ out/
 !**/src/test/**/out/
 .kotlin
 
+# build and output directories
+/out/
+/build/
+/bin/
+/target/
+/production/
+
 ### Eclipse ###
 .apt_generated
 .classpath
