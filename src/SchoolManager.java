@@ -15,8 +15,8 @@ public class SchoolManager implements Runnable
         System.out.println("Running School Manager...");
 
         //dummy/demo implement
-        Course dummyCourse = new Course("java", "Programming in Java", "OOP principles", LocalDate.of(2025,9,1),LocalDate.of(2026,10,30));
-        Student dummyStudent = new Student();
+        Course dummyCourse = new Course("Java", "Programming in Java", "OOP principles", LocalDate.of(2025,9,1),LocalDate.of(2026,10,30));
+        Student dummyStudent = Student.builder().first_name("Adam").surname("Genesis").age(20).build();
         Teacher dummyTeacher = new Teacher();
         dummyCourse.AddStudent(dummyStudent);
         dummyCourse.AddTeacher(dummyTeacher);
@@ -27,6 +27,11 @@ public class SchoolManager implements Runnable
 
         System.out.println("students:");
         dummyCourse.getStudents().forEach(System.out::println);
+        dummyCourse.getStudents().forEach((s) -> {
+            s.AddCourse(dummyCourse);
+            s.AddGrade(dummyCourse, Grade.Score.B);
+        });
+        dummyCourse.getStudents().forEach((s) -> s.getGrades());
 
     }
 }
