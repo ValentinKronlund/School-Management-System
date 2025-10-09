@@ -1,9 +1,13 @@
+import helpers.Helpers;
 import java.time.LocalDate;
+import java.util.Scanner;
 
 public class SchoolManager implements Runnable
 {
     private static SchoolManager instance;
     private SchoolManager(){}
+    private Scanner input = new Scanner(System.in);
+    private Helpers helper = new Helpers();
 
     public static SchoolManager GetInstance(){
         if(instance == null){instance = new SchoolManager();}
@@ -32,5 +36,51 @@ public class SchoolManager implements Runnable
             s.AddGrade(dummyCourse, Grade.Score.B);
             s.printGrades();
         });
+
+        System.out.println("----------------------------------"
+                            +"\nSchool Management System Interface"
+                            +"\n----------------------------------"
+                            +"\n"
+        );
+
+        Boolean programRunning = true;
+        while(programRunning){
+            System.out.println(
+                "What would you like to do?\n"
+                        + "1: 📋 Display a course!\n"
+                        + "2: 👩🏻‍🏫 Display a teacher!\n"
+                        + "3: 🧑🏽‍🎓 Display a student!\n"
+                        + "4: 📝 Display a student's grades!\n"
+                        + "x: ❌ Exit the program.");
+    
+            char choice = helper.askChar(input, "");
+
+            switch(choice){
+                case '1': {
+                    System.out.println(dummyCourse.getName());
+                    continue;
+                }
+                case '2': {
+                    System.out.println(dummyTeacher.toString());
+                    continue;
+                }
+                case '3': {
+                    System.out.println(dummyStudent.toString());
+                    continue;
+                }
+                case '4': {
+                    dummyStudent.printGrades();
+                    continue;
+                }
+                case 'x': {
+                    programRunning = false;
+                    break;
+                }
+                default: {
+                    System.out.println("There is no such option -- Try again!");
+                }
+            }
+
+        }
     }
 }
