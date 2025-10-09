@@ -17,7 +17,7 @@ public class SchoolManager implements Runnable
         //dummy/demo implement
         Course dummyCourse = new Course("Java", "Programming in Java", "OOP principles", LocalDate.of(2025,9,1),LocalDate.of(2026,10,30));
         Student dummyStudent = Student.builder().first_name("Adam").surname("Genesis").age(20).build();
-        Teacher dummyTeacher = new Teacher();
+        Teacher dummyTeacher = Teacher.builder().first_name("Eve").surname("Applebaum").age(37).build();
         dummyCourse.AddStudent(dummyStudent);
         dummyCourse.AddTeacher(dummyTeacher);
 
