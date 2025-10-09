@@ -1,12 +1,12 @@
 import abstracts.Person;
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.HashMap;
+import java.util.Map;
 
 public class Student extends Person {
     ArrayList<Course> courses = new ArrayList<>();
-    ArrayList<Grade> grades = new ArrayList<>();
-
-
-    //DUMMY CLASS, REPLACE/GROW FOR IMPLEMENTATION
+    Map<String, Grade> gradesByCourse = new HashMap<>();
 
     private Student(Builder builder){
         super(builder.first_name, builder.surname, builder.age, Person.Role.Student);
@@ -24,11 +24,15 @@ public class Student extends Person {
         String cName = course.getName();
         String cSubject = course.getSubject();
         Grade grade = Grade.builder().courseName(cName).courseSubject(cSubject).score(score).build();
-        this.grades.add(grade);
+        this.gradesByCourse.put(cName, grade);
     }
 
-    public void getGrades(){
-        grades.forEach((g) -> {
+    public Collection<Grade> getGrades(){
+        return gradesByCourse.values();
+    }
+
+    public void printGrades(){
+        gradesByCourse.values().forEach((g) -> {
             System.out.println(this.getFirstName() + " " + this.getSurname() + " " + g.toString());
         });
     }
@@ -38,7 +42,6 @@ public class Student extends Person {
         private String first_name;
         private String surname;
         private int age;
-        private Role role;
 
         private Builder(){}
 
