@@ -30,8 +30,7 @@ public class SchoolManager implements Runnable
         dummyCourse.getStudents().forEach((s) -> {
             s.AddCourse(dummyCourse);
             s.AddGrade(dummyCourse, Grade.Score.B);
-            s.getGrades();
+            s.printGrades();
         });
-
     }
 }
