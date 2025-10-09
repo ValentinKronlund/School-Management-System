@@ -38,7 +38,6 @@ public class Student extends Person {
         private String first_name;
         private String surname;
         private int age;
-        private Role role;
 
         private Builder(){}
 
