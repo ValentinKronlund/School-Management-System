@@ -1,5 +1,6 @@
 import helpers.Helpers;
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class SchoolManager implements Runnable
@@ -17,6 +18,8 @@ public class SchoolManager implements Runnable
     @Override
     public void run() {
         System.out.println("Running School Manager...");
+
+        ArrayList<Course> curriculum = Mock.GenerateMockCurriculum();
 
         //dummy/demo implement
         Course dummyCourse = new Course("Java", "Programming in Java", "OOP principles", LocalDate.of(2025,9,1),LocalDate.of(2026,10,30));
@@ -47,7 +50,7 @@ public class SchoolManager implements Runnable
         while(programRunning){
             System.out.println(
                 "What would you like to do?\n"
-                        + "1: 📋 Display a course!\n"
+                        + "1: 📋 Display the curriculum!\n"
                         + "2: 👩🏻‍🏫 Display a teacher!\n"
                         + "3: 🧑🏽‍🎓 Display a student!\n"
                         + "4: 📝 Display a student's grades!\n"
@@ -57,7 +60,7 @@ public class SchoolManager implements Runnable
 
             switch(choice){
                 case '1': {
-                    System.out.println(dummyCourse.getName());
+                    curriculum.forEach(System.out::println);
                     continue;
                 }
                 case '2': {

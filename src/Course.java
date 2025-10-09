@@ -61,4 +61,8 @@ public class Course
     }
     public void RemoveTeacher(Teacher teacher){teachers.remove(teacher);}
 
+    @Override
+    public String toString(){
+        return "[Course]: %s \n[Desc.]: %s \n[Subject]: %s \n[Start]: %s, \n[End]: %s\n".formatted(name, description, subject, startDate, endDate);
+    } 
 }
