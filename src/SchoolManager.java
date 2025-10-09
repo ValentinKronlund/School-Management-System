@@ -20,6 +20,8 @@ public class SchoolManager implements Runnable
         System.out.println("Running School Manager...");
 
         ArrayList<Course> curriculum = Mock.GenerateMockCurriculum();
+        ArrayList<Teacher> faculty = Mock.GenerateMockFaculty();
+        ArrayList<Student> students = Mock.GenerateMockStudents();
 
         //dummy/demo implement
         Course dummyCourse = new Course("Java", "Programming in Java", "OOP principles", LocalDate.of(2025,9,1),LocalDate.of(2026,10,30));
@@ -51,8 +53,8 @@ public class SchoolManager implements Runnable
             System.out.println(
                 "What would you like to do?\n"
                         + "1: 📋 Display the curriculum!\n"
-                        + "2: 👩🏻‍🏫 Display a teacher!\n"
-                        + "3: 🧑🏽‍🎓 Display a student!\n"
+                        + "2: 👩🏻‍🏫 Display the faculty members!\n"
+                        + "3: 🧑🏽‍🎓 Display enrolled students!\n"
                         + "4: 📝 Display a student's grades!\n"
                         + "x: ❌ Exit the program.");
     
@@ -64,11 +66,11 @@ public class SchoolManager implements Runnable
                     continue;
                 }
                 case '2': {
-                    System.out.println(dummyTeacher.toString());
+                    faculty.forEach(System.out::println);
                     continue;
                 }
                 case '3': {
-                    System.out.println(dummyStudent.toString());
+                    students.forEach(System.out::println);
                     continue;
                 }
                 case '4': {

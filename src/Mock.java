@@ -97,4 +97,98 @@ public class Mock {
         return mock;
     }
     
+    public static ArrayList<Teacher> GenerateMockFaculty(){
+        ArrayList<HashMap<String, Object>> faculty = new ArrayList<>();
+        ArrayList<Teacher> mock = new ArrayList<>();
+
+        HashMap<String, Object> member1 = new HashMap<>();
+        member1.put("name", "Eleanor");
+        member1.put("surname", "Hartwell");
+        member1.put("age", 52);
+        faculty.add(member1);
+
+        HashMap<String, Object> member2 = new HashMap<>();
+        member2.put("name", "Marcus");
+        member2.put("surname", "Linwood");
+        member2.put("age", 44);
+        faculty.add(member2);
+
+        HashMap<String, Object> member3 = new HashMap<>();
+        member3.put("name", "Selene");
+        member3.put("surname", "Vargas");
+        member3.put("age", 39);
+        faculty.add(member3);
+
+        HashMap<String, Object> member4 = new HashMap<>();
+        member4.put("name", "Julian");
+        member4.put("surname", "Kensley");
+        member4.put("age", 58);
+        faculty.add(member4);
+
+        HashMap<String, Object> member5 = new HashMap<>();
+        member5.put("name", "Amira");
+        member5.put("surname", "D’Souza");
+        member5.put("age", 47);
+        faculty.add(member5);
+
+        HashMap<String, Object> member6 = new HashMap<>();
+        member6.put("name", "Tobias");
+        member6.put("surname", "Grimm");
+        member6.put("age", 61);
+        faculty.add(member6);
+
+        for (Map<String, Object> teacher : faculty){
+            mock.add(Teacher.builder().first_name((String)teacher.get("name")).surname((String)teacher.get("surname")).age((int)teacher.get("age")).build());
+        }
+
+        return mock;
+    }
+
+    public static ArrayList<Student> GenerateMockStudents(){
+        ArrayList<HashMap<String, Object>> students = new ArrayList<>();
+        ArrayList<Student> mock = new ArrayList<>();
+
+        HashMap<String, Object> student1 = new HashMap<>();
+        student1.put("name", "Lydia");
+        student1.put("surname", "Morales");
+        student1.put("age", 20);
+        students.add(student1);
+
+        HashMap<String, Object> student2 = new HashMap<>();
+        student2.put("name", "Ethan");
+        student2.put("surname", "Callahan");
+        student2.put("age", 22);
+        students.add(student2);
+
+        HashMap<String, Object> student3 = new HashMap<>();
+        student3.put("name", "Nora");
+        student3.put("surname", "Bjornsson");
+        student3.put("age", 19);
+        students.add(student3);
+
+        HashMap<String, Object> student4 = new HashMap<>();
+        student4.put("name", "Ravi");
+        student4.put("surname", "Patel");
+        student4.put("age", 21);
+        students.add(student4);
+
+        HashMap<String, Object> student5 = new HashMap<>();
+        student5.put("name", "Aiko");
+        student5.put("surname", "Tanaka");
+        student5.put("age", 23);
+        students.add(student5);
+
+        HashMap<String, Object> student6 = new HashMap<>();
+        student6.put("name", "Jonas");
+        student6.put("surname", "Lindström");
+        student6.put("age", 20);
+        students.add(student6);
+
+        for(HashMap<String, Object> student : students){
+            mock.add(Student.builder().first_name((String)student.get("name")).surname((String)student.get("surname")).age((int)student.get("age")).build());
+        }
+
+        return mock;
+    }
+
 }
