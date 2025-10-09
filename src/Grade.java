@@ -60,7 +60,7 @@ public final class Grade {
 
     @Override
     public String toString(){
-        return "Grade for course '%s', in the subject '%s' is: %s".formatted(courseName, courseSubject, score);
+        return "grade for course '%s', in the subject '%s' is: %s".formatted(courseName, courseSubject, score);
     }
     
 }
