@@ -3,8 +3,10 @@ package helpers;
 import java.util.Scanner;
 
 public class Helpers {
+    Scanner input = new Scanner(System.in);
+
     /* ----- HELPERS! 👷🏽 ----- */
-    public String askLine(Scanner input, String prompt) {
+    public String askLine(String prompt) {
         System.out.print(prompt);
         while (true) {
             String correctInput = input.nextLine().trim();
@@ -17,7 +19,7 @@ public class Helpers {
         }
     }
 
-    public int askInt(Scanner input, String prompt) {
+    public int askInt(String prompt) {
         while (true) {
             System.out.print(prompt);
             String inputAsString = input.nextLine().trim();
@@ -30,7 +32,7 @@ public class Helpers {
         }
     }
 
-    public double askDobule(Scanner input, String prompt) {
+    public double askDobule(String prompt) {
         while (true) {
             System.out.print(prompt);
             String inputAsString = input.nextLine().trim().replace(',', '.');
@@ -43,7 +45,7 @@ public class Helpers {
         }
     }
 
-    public char askChar(Scanner input, String prompt) {
+    public char askChar(String prompt) {
         try {
             System.out.println(prompt);
             return input.nextLine().trim().charAt(0);
