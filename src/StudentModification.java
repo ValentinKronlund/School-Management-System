@@ -14,7 +14,6 @@ public class StudentModification
     }
 
     public Student makeNewStudent(){
-        Scanner sc = new Scanner(System.in);
         System.out.println("New student adding started. ");
         Helpers help = new Helpers();
 
@@ -36,9 +35,9 @@ public class StudentModification
         System.out.println("What student are you looking to enroll?");
         students.forEach(System.out::println);
 
-        Student searchedStudent = studentSearch(helper, students);
+        Student searchedStudent = studentSearch(students);
         if(searchedStudent != null){
-            Course searchedCourse = courseSearch(helper,curriculum);
+            Course searchedCourse = courseSearch(curriculum);
             searchedStudent.AddCourse(searchedCourse);
             searchedCourse.AddStudent(searchedStudent);
             System.out.println("\n✅ Student: %s %s, has registered for: ".formatted(searchedStudent.getFirstName(), searchedStudent.getSurname(), searchedCourse.getName()));
