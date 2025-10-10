@@ -1,8 +1,9 @@
+import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Course
+public class Course implements Serializable
 {
     private String name;
     private String description;
@@ -64,5 +65,5 @@ public class Course
     @Override
     public String toString(){
         return "[Course]: %s \n[Desc.]: %s \n[Subject]: %s \n[Start]: %s, \n[End]: %s\n".formatted(name, description, subject, startDate, endDate);
-    } 
+    }
 }

@@ -1,6 +1,9 @@
 package abstracts;
 
-public abstract class Person {
+import java.io.Serializable;
+
+public abstract class Person implements Serializable
+{
     String first_name;
     String surname;
     int age;

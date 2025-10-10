@@ -1,7 +1,10 @@
 import abstracts.Person;
+
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class Teacher extends Person {
+public class Teacher extends Person implements Serializable
+{
     ArrayList<Course> courses = new ArrayList<>();
 
     private Teacher(Builder builder){
