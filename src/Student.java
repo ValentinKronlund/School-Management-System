@@ -1,10 +1,13 @@
 import abstracts.Person;
+
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
 
-public class Student extends Person {
+public class Student extends Person implements Serializable
+{
     ArrayList<Course> courses = new ArrayList<>();
     Map<String, Grade> gradesByCourse = new HashMap<>();
 
