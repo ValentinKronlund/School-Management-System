@@ -67,6 +67,7 @@ public class SchoolManager implements Runnable, Serializable
                             x: ❌ Exit the program.
                             
                             e: ✏️ Register student to a course.
+                            a: add new student to school registry.
                             """);
     
             char choice = helper.askChar("");
@@ -93,7 +94,7 @@ public class SchoolManager implements Runnable, Serializable
                     continue;
                 }
                 case 'e':{
-                    enrollStudent(helper, curriculum, students);
+                    sModder.registerStudentCourse(helper, curriculum, students);
                     continue;
                 }
                 case 'a':{
@@ -113,56 +114,5 @@ public class SchoolManager implements Runnable, Serializable
         }
     }
 
-    private void enrollStudent(Helpers helper, ArrayList<Course> curriculum, ArrayList<Student> students){
-        System.out.println("What student are you looking to enroll?");
-        students.forEach(System.out::println);
-        Student searchedStudent = null;
-        Course searchedCourse = null;
 
-        boolean foundStudent = false;
-        while(!foundStudent){
-            String[] choice = helper.askLine("Enter the student's full name, separate the first name and surname by a whitespace ' ':\n").toLowerCase().split("\\s+", 2);
-
-            for(Student student : students){
-                String sFirstName = student.getFirstName().toLowerCase();
-                String sSurname = student.getSurname().toLowerCase();
-                if(sFirstName.equals(choice[0]) && sSurname.equals(choice[1])
-                ){
-                    System.out.println("\nYou have selected student: %s %s\n".formatted(sFirstName, sSurname));
-                    foundStudent = true;
-                    searchedStudent = student;
-                    break;
-                }
-            }
-            if(searchedStudent == null){
-                System.out.println("There doesn't seem to be a student with the name of: %s %s \n".formatted(choice[0], choice[1]));
-            }
-        }
-
-        if(foundStudent){
-            System.out.println("What course would you like to register for?\n");
-            curriculum.forEach(System.out::println);
-            boolean foundCourse = false;
-            while(!foundCourse){
-                String choice = helper.askLine("Enter the course's name: ").toLowerCase();
-
-                for(Course course : curriculum){
-                    if(course.getName().toLowerCase().equals(choice)){
-                        System.out.println("You have selected the course: %s".formatted(course.getName()));
-                        foundCourse = true;
-                        searchedCourse = course;
-                        break;
-                    }
-                }
-                if(searchedCourse == null){
-                    System.out.println("There doesn't seem to be a course with the name of: %s".formatted(choice));
-                }
-            }
-        }
-
-        searchedStudent.AddCourse(searchedCourse);
-        searchedCourse.AddStudent(searchedStudent);
-
-        System.out.println("\n✅ Student: %s %s, has registered for: ".formatted(searchedStudent.getFirstName(), searchedStudent.getSurname(), searchedCourse.getName()));
-    }
 }
