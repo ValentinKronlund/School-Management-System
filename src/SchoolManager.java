@@ -12,7 +12,7 @@ public class SchoolManager implements Runnable, Serializable
         if(instance == null){instance = new SchoolManager();}
         return instance;
     }
-
+    StudentModification sModder = StudentModification.GetInstance();
 
     private final ArrayList<Course> curriculum = Mock.GenerateMockCurriculum();
     private final ArrayList<Teacher> faculty = Mock.GenerateMockFaculty();
@@ -94,6 +94,11 @@ public class SchoolManager implements Runnable, Serializable
                 }
                 case 'e':{
                     enrollStudent(helper, curriculum, students);
+                    continue;
+                }
+                case 'a':{
+                    students.add(sModder.makeNewStudent());
+                    System.out.println("Reminder: New Student currently has no courses assigned.");
                     continue;
                 }
                 case 'x': {
