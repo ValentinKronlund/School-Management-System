@@ -68,6 +68,7 @@ public class SchoolManager implements Runnable, Serializable
                             
                             e: ✏️ Register student to a course.
                             a: add new student to school registry.
+                            r: remove student from school registry.
                             """);
     
             char choice = helper.askChar("");
@@ -116,7 +117,6 @@ public class SchoolManager implements Runnable, Serializable
                     System.out.println("There is no such option -- Try again!");
                 }
             }
-
         }
     }
 
