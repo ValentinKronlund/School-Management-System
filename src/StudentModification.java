@@ -1,9 +1,9 @@
 import helpers.Helpers;
 
+import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.Scanner;
 
-public class StudentModification
+public class StudentModification implements Serializable
 {
     private static StudentModification instance;
     private StudentModification(){}
@@ -25,7 +25,7 @@ public class StudentModification
 
     }
 
-    public void RemoveStudent(ArrayList<Student> students){
+    public void removeStudent(ArrayList<Student> students){
         System.out.println("who are you trying to remove? ");
         Student targStudent = studentSearch(students);
         students.remove(targStudent);

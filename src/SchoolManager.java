@@ -100,6 +100,12 @@ public class SchoolManager implements Runnable, Serializable
                 case 'a':{
                     students.add(sModder.makeNewStudent());
                     System.out.println("Reminder: New Student currently has no courses assigned.");
+                    students.forEach(System.out::println);
+                    continue;
+                }
+                case 'r':{
+                    sModder.removeStudent(students);
+                    students.forEach(System.out::println);
                     continue;
                 }
                 case 'x': {
